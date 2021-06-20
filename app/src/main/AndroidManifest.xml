@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoTE">
         <activity android:name=".CrearCuenta"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".InicioSesion">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
