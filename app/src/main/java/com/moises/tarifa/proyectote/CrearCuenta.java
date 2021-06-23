@@ -44,9 +44,9 @@ public class CrearCuenta extends AppCompatActivity {
         setContentView(R.layout.activity_crear_cuenta);
 
         txtApellido = findViewById(R.id.txtApellido);
-        txtEmail = findViewById(R.id.txtEmail);
+        txtEmail = findViewById(R.id.txtProducto);
         txtNombre = findViewById(R.id.txtNombre);
-        txtPassword = findViewById(R.id.txtPassword);
+        txtPassword = findViewById(R.id.txtPrecio);
         txtConfirmarPassword = findViewById(R.id.txtConfirmarCon);
 
         mAuth = FirebaseAuth.getInstance();
@@ -87,7 +87,8 @@ public class CrearCuenta extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
-                                startActivity(new Intent(CrearCuenta.this,MainActivity.class));
+                                Toast.makeText(getApplicationContext(),"Se registro correctamente",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(CrearCuenta.this,InicioSesion.class));
                                 finish();
                             }else{
                                 Toast.makeText(getApplicationContext(),"no se pudo registrarr",Toast.LENGTH_SHORT).show();

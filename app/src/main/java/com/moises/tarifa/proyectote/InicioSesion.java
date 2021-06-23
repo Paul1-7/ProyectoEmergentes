@@ -16,12 +16,23 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class InicioSesion extends AppCompatActivity {
 
     int RC_SIGN_IN = 100;
     SignInButton button;
     private FirebaseAuth mAuth;
+    public DatabaseReference myRef;
+    public ArrayList<Usuarios> usuariosList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,37 +42,46 @@ public class InicioSesion extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         //inicio sesion
-        EditText textEmail = findViewById(R.id.txtEmail);
-        EditText textPassword = findViewById(R.id.txtPassword);
+        EditText textEmail = findViewById(R.id.txtProducto);
+        EditText textPassword = findViewById(R.id.txtPrecio);
         Button inicioSesion = findViewById(R.id.btnAcceder);
         inicioSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = textEmail.getText().toString();
-                String password =textPassword.getText().toString();
+                String password = textPassword.getText().toString();
                 //comprobamos si es correcto
-                mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
-                            Intent intent = new Intent(InicioSesion.this,MainActivity.class);
-                            startActivity(intent);
+                        if (task.isSuccessful()) {
 
-                        }
-                        else
-                            Toast.makeText(getApplicationContext(),"Usuario y/o contraseña incorrecta",Toast.LENGTH_SHORT).show();
+                            // envia el id
+                            FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                            if (currentFirebaseUser != null){
+                                Intent intent = new Intent(InicioSesion.this, MainActivity.class);
+                                intent.putExtra("idUser",currentFirebaseUser.getUid());
+                                startActivity(intent);
+                            }
+                            else
+                                Toast.makeText(getApplicationContext(), "No se ouede obtener los datos del usuario", Toast.LENGTH_SHORT).show();
+
+
+
+                        } else
+                            Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrecta", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
         });
 
         // crear cuenta
-        TextView  crearCuenta= findViewById(R.id.txtCrearCuenta);
+        TextView crearCuenta = findViewById(R.id.txtCrearCuenta);
         crearCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //mAuth.signOut();
-                Intent intent = new Intent(InicioSesion.this,CrearCuenta.class);
+                Intent intent = new Intent(InicioSesion.this, CrearCuenta.class);
                 startActivity(intent);
             }
         });
@@ -126,5 +146,5 @@ public class InicioSesion extends AppCompatActivity {
                 });
     }
     */
-}
+    }
 }

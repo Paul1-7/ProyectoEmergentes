@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.moises.tarifa.proyectote">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,9 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoTE">
-        <activity android:name=".CrearCuenta"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".DetallePublicacion"></activity>
+        <activity android:name=".FormPublicacion" />
+        <activity android:name=".CrearCuenta" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".InicioSesion">
+
+            <meta-data android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyDGRLJXiGwSWVBCQ2FR7IR3pHBn2CRhbU4"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
