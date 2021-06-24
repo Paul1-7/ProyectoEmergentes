@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="25dp"
-    tools:context=".FormPublicacion">
+    tools:context=".ModificarPublicacion">
 
     <TextView
         android:id="@+id/textViewFormPublicacion"
@@ -105,7 +105,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
+        android:layout_width="369dp"
         android:layout_height="64dp"
         android:layout_marginStart="1dp"
         android:layout_marginLeft="1dp"
@@ -152,14 +152,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <RadioButton
-            android:id="@+id/radio_button_disponible"
+            android:id="@+id/radio_button_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:checked="true"
             android:text="Disponible" />
 
         <RadioButton
-            android:id="@+id/radio_button_vendido"
+            android:id="@+id/radio_button_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Vendido" />
