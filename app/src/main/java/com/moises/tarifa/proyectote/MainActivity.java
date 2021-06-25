@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             }
         });
 
-        setContentView(R.layout.activity_main2);
+        /*
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         //IMPLEMENTADO
         updateNavHeader();
-
+*/
 
 
         //--------------------------------------------------------------------------------------
@@ -209,6 +209,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     }
 
+    /*
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -240,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         navUsername.setText(currentUser.getDisplayName());
 
     }
-
+*/
     //Metodo para asignar las funciones correspondientes a las opciones
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -267,7 +268,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             else if(etBuscador.getVisibility() == 0){
                 etBuscador.setVisibility(View.GONE);
             }
-
             return true;
         }else if(id== R.id.itemadd){
             Intent i = new Intent(this, FormPublicacion.class);
@@ -275,7 +275,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             startActivity(i);
 
             return true;
-        }else if(id==R.id.nav_logOut){
+        }else if(id==R.id.itemMisPublicaciones){
+            Intent i = new Intent(this, MisPublicaciones.class);
+            startActivity(i);
         } {
 
             return true;

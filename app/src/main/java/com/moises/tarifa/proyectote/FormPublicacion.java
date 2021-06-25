@@ -88,6 +88,7 @@ public class FormPublicacion extends AppCompatActivity {
             }
         });
 
+
         //btn cancelar
         Button btnCancelar = findViewById(R.id.btnCancelar);
         btnCancelar.setOnClickListener(new View.OnClickListener() {

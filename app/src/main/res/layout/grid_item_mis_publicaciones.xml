@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/surface"
-    app:cardCornerRadius="5dp"
+    app:cardBackgroundColor="@color/on_surface"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="9dp"
     app:cardElevation="4dp">
 
     <LinearLayout

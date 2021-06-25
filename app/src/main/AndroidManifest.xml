@@ -18,8 +18,8 @@
         <activity android:name=".DetallePublicacion" />
         <activity android:name=".FormPublicacion" />
         <activity android:name=".CrearCuenta" />
-        <activity android:name=".InicioSesion" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".InicioSesion">
             <meta-data
                 android:name="com.google.android.geo.API_KEY"
                 android:value="AIzaSyDGRLJXiGwSWVBCQ2FR7IR3pHBn2CRhbU4" />

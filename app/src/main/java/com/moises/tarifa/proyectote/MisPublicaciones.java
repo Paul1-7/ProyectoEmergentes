@@ -48,8 +48,13 @@ public class MisPublicaciones extends AppCompatActivity {
                     Intent intent = new Intent(MisPublicaciones.this, MainActivity.class);
                     startActivity(intent);
                 }
+                else if(itenSelect == R.id.itemPrincipal){
+                    Intent intent = new Intent(MisPublicaciones.this, MainActivity.class);
+                    startActivity(intent);
+                    return false;
+                }
                 return false;
-            }
+            };
         });
 
 
@@ -104,7 +109,11 @@ public class MisPublicaciones extends AppCompatActivity {
             @Override
             public void onItemClickSelected(View vista, Productos itemSel, int posicion) {
                 if(vista.getId() == R.id.btnModificar){
-                    mostrarFormModificar(vista,itemSel,posicion);
+                    Intent i = new Intent(MisPublicaciones.this, ModificarPublicacion.class);
+                    i.putExtra("producto_id",itemSel.getId());
+                    startActivity(i);
+
+                    //mostrarFormModificar(vista,itemSel,posicion);
                 }else if(vista.getId() == R.id.btnEliminar){
                     new MaterialAlertDialogBuilder(vista.getContext()).setTitle("ELIMINAR LA PUBLICACION SELECCIONADA")
                             .setMessage("¿Esta seguro de eliminar la publicacion seleccionada?")

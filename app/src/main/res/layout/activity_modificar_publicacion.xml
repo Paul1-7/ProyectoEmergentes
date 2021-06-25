@@ -12,7 +12,7 @@
         android:id="@+id/textViewFormPublicacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:textColor="#fff"
         android:textSize="30dp"
         android:textStyle="bold"
@@ -104,33 +104,40 @@
         android:id="@+id/textInputLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/primary"
         android:textColorHint="@color/primary"
         app:boxStrokeColor="@color/primary"
         app:endIconTint="@color/primary"
         app:hintTextColor="@color/primary"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         app:placeholderTextColor="#EDE1E1"
         app:startIconTint="@color/primary"
         app:suffixTextColor="@color/primary"
-        android:textColor="@color/primary"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="112dp">
+        tools:layout_editor_absoluteX="25dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtImagen"
-            android:background="@color/on_surface"
-            android:textColor="@color/primary"
-            android:textColorHint="@color/primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enlace de la imagen" />
+            android:background="@color/on_surface"
+            android:hint="Enlace de la imagen"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup">
 
         <Button
@@ -147,43 +154,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:textColor="@color/primary"
-            android:backgroundTint="@color/on_surface"
-            android:layout_weight="1" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-        <Button
-            android:id="@+id/btnTomarFoto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:backgroundTint="@color/on_surface"
-            android:text="Tomar Foto"
-            app:icon="@drawable/ic_baseline_photo_camera_24" />
-
-        <Button
-            android:id="@+id/btnSubirFoto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:text="Subir Foto"
-            android:backgroundTint="@color/on_surface"
-            app:icon="@drawable/ic_baseline_photo_library_24" />
-
+            android:textColor="@color/primary" />
     </LinearLayout>
 
     <TextView
