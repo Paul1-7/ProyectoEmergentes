@@ -2,6 +2,7 @@ package com.moises.tarifa.proyectote;
 
 public class Productos {
 
+    String id;
     String nombre;
     String precio;
     String descripcion;
@@ -55,5 +56,26 @@ public class Productos {
 
     public void setId_user(String id_user) {
         this.id_user = id_user;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Productos{" +
+                "id='" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", precio='" + precio + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", imagen='" + imagen + '\'' +
+                ", estado='" + estado + '\'' +
+                ", id_user='" + id_user + '\'' +
+                '}';
     }
 }

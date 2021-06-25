@@ -140,6 +140,7 @@ public class FormPublicacion extends AppCompatActivity {
                 productoNew.setImagen(imagen);
                 productoNew.setEstado(estado);
                 productoNew.setId_user(idUser);
+                productoNew.setId(id);
                 adapter.insertItem(productoNew);
                 dbRef.child(id).setValue(productoNew);
 

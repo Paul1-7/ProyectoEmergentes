@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/surface"
+
     tools:context=".MainActivity">
 
     <include
@@ -15,20 +17,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="413dp"
-        android:layout_height="650dp"
-        android:layout_marginBottom="60dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <EditText
+
+        android:id="@+id/etBuscador"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="@color/on_surface"
+        android:hint="Buscar"
+        android:padding="15dp"
+        android:textColor="@color/primary"
+        android:textColorHint="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="530dp"
+        android:layout_margin="25dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etBuscador" />
 
     <FrameLayout
         android:id="@+id/contenedorPrincipal"
         android:layout_width="415dp"
         android:layout_height="60dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -38,11 +58,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="@color/purple_700"
-            app:itemIconTint="@color/white"
-            app:itemTextColor="@color/white"
-            app:menu="@menu/menu_botton_nav"
-
-            />
+            app:itemTextColor="@color/surface"
+            app:itemIconTint="@color/surface"
+            app:itemBackground="@color/on_surface"
+            app:menu="@menu/menu_botton_nav" />
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

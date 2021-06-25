@@ -45,6 +45,8 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.ViewH
         notifyItemInserted(posicion);
     }
 
+
+
     public void updateItem(Productos productos,int position){
         list.set(position,productos);
         notifyItemChanged(position);
@@ -54,6 +56,12 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.ViewH
         list.remove(productos);
         notifyItemRemoved(position);
     }
+
+    public void filtrar(ArrayList<Productos> filtroUsuarios){
+        this.list = filtroUsuarios;
+        notifyDataSetChanged();
+    }
+
 
     //*************************************************************************** click
     public void setOnclickListener(View.OnClickListener listener){

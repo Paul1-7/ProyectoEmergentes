@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -22,7 +25,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.moises.tarifa.proyectote.DetallePublicacion;
-import com.moises.tarifa.proyectote.Messages;
 import com.moises.tarifa.proyectote.Productos;
 import com.moises.tarifa.proyectote.R;
 import com.moises.tarifa.proyectote.RecyclerAdapter;
@@ -47,11 +49,34 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
 
     //Toolbar
     Toolbar tool;
+
+    //buscador
+    EditText etBuscador;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //--------------------------------------------------buscador
 
+        etBuscador = findViewById(R.id.etBuscador);
+        etBuscador.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filtrar(s.toString());
+            }
+        });
+
+        //--------------------------------------------------------------------------------------
         //actionbar
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -99,14 +124,14 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
                 for (DataSnapshot snapshot : datasnapshot.getChildren()){
                     Productos B = new Productos();
                     B.setNombre(snapshot.child("nombre").getValue().toString());
-                    B.setPrecio(snapshot.child("precio").getValue().toString());
+                    B.setPrecio(snapshot.child("precio").getValue().toString()+" Bs.");
                     B.setImagen(snapshot.child("imagen").getValue().toString());
 
                     productosList.add(B);
                 }
                 recyclerAdapter = new RecyclerAdapter(getApplicationContext(), productosList);
                 recyclerView.setAdapter(recyclerAdapter);
-                recyclerAdapter.notifyDataSetChanged();
+                //recyclerAdapter.notifyDataSetChanged();
 
 
                 recyclerAdapter.setOnclickListener(new View.OnClickListener() {
@@ -114,11 +139,9 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
                     public void onClick(View v) {
                         //pansando informacion por medio de intent a main activity
                         Intent i = new Intent(getApplicationContext(), DetallePublicacion.class);
-                        i.putExtra("producto", productosList.get(recyclerView.getChildAdapterPosition(v)).getNombre());
+                        i.putExtra("id_producto", productosList.get(recyclerView.getChildAdapterPosition(v)).getId());
                         startActivity(i);
-                        Toast.makeText(getApplicationContext(),
-                                "seleccion : " + productosList.get(recyclerView.getChildAdapterPosition(v)).getNombre(),
-                                Toast.LENGTH_SHORT).show();
+
                     }
                 });
             }
@@ -168,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
 
             return true;
         }else if(id== R.id.itemadd){
-            Intent i = new Intent(this,FormPublicacion.class);
+            Intent i = new Intent(this, FormPublicacion.class);
             i.putExtra("idUser",idUser);
             startActivity(i);
 
@@ -178,5 +201,16 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             return true;
         }
     }
+    //******************************************************************* metodo filtrar
+    public void filtrar(String texto){
+        ArrayList<Productos> filtrarLista= new ArrayList<>();
+        for(Productos men : productosList){
+            if(men.getNombre().toLowerCase().contains(texto.toLowerCase())){
+                filtrarLista.add(men);
+            }
+        }
+        recyclerAdapter.filtrar(filtrarLista);
+    }
+    //******************************************************************* metodo filtrar
 
 }
