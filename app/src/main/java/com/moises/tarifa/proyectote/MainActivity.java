@@ -2,9 +2,15 @@ package com.moises.tarifa.proyectote;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,10 +20,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,12 +41,15 @@ import com.moises.tarifa.proyectote.RecyclerAdapter;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements  BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener, NavigationView.OnNavigationItemSelectedListener {
     //navbotton
     BottomNavigationView navBotton;
 
     RecyclerView recyclerView   ;
 
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser;
+    private AppBarConfiguration mAppBarConfiguration;
     //firebase
     public  DatabaseReference myRef;
 
@@ -59,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
         //--------------------------------------------------buscador
 
         etBuscador = findViewById(R.id.etBuscador);
+        etBuscador.setVisibility(View.GONE);
         etBuscador.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -76,13 +90,40 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             }
         });
 
-        //--------------------------------------------------------------------------------------
-        //actionbar
+        setContentView(R.layout.activity_main2);
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //IMPLEMENTAMOS INICIO
+        mAuth= FirebaseAuth.getInstance();
+        currentUser=mAuth.getCurrentUser();
+        //
+
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_user, R.id.nav_Notificaciones, R.id.nav_publicaciones)
+                .setDrawerLayout(drawer)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
+
+        //IMPLEMENTADO
+        updateNavHeader();
+
+
+
+        //--------------------------------------------------------------------------------------
+        //actionbar
+
+
         //navbotton
         navBotton = findViewById(R.id.navBotton);
+
         navBotton.setOnNavigationItemSelectedListener(this);
 
 
@@ -165,6 +206,39 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return  true;
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
+    }
+
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        int id=item.getItemId();
+//        if(id==R.id.nav_logOut){
+//        }
+//        return false;
+//    }
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+    //PARA ACTUALIZAR LOS DATOS EN EL HEADER
+    public void updateNavHeader(){
+        NavigationView navigationView= (NavigationView) findViewById(R.id.nav_view);
+        View headerView=navigationView.getHeaderView(0);
+        TextView navUsername=headerView.findViewById(R.id.nav_username);
+        TextView navUserEmail=headerView.findViewById(R.id.nav_user_email);
+        //ImageView navUseFoto=headerView.findViewById(R.id.nav_user_foto);
+
+        navUserEmail.setText(currentUser.getEmail());
+        navUsername.setText(currentUser.getDisplayName());
+
     }
 
     //Metodo para asignar las funciones correspondientes a las opciones
@@ -182,12 +256,17 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
         }  return super.onOptionsItemSelected(item);
     }
 
-
     //******************************************************************* menu navbar
+    @SuppressLint("WrongConstant")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if(id== R.id.itembuscar){
+            if(etBuscador.getVisibility() == 8)
+                etBuscador.setVisibility(View.VISIBLE);
+            else if(etBuscador.getVisibility() == 0){
+                etBuscador.setVisibility(View.GONE);
+            }
 
             return true;
         }else if(id== R.id.itemadd){
@@ -196,11 +275,21 @@ public class MainActivity extends AppCompatActivity implements  BottomNavigation
             startActivity(i);
 
             return true;
-        }else {
+        }else if(id==R.id.nav_logOut){
+        } {
 
             return true;
         }
+
     }
+
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        int id=item.getItemId();
+//        if(id==R.id.nav_logOut){
+//        }
+//        return false;
+//    }
     //******************************************************************* metodo filtrar
     public void filtrar(String texto){
         ArrayList<Productos> filtrarLista= new ArrayList<>();

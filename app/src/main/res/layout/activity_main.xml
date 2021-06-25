@@ -22,7 +22,7 @@
         android:id="@+id/etBuscador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="15dp"
         android:background="@color/on_surface"
         android:hint="Buscar"
         android:padding="15dp"
@@ -36,7 +36,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="530dp"
+        android:layout_height="515dp"
         android:layout_margin="25dp"
 
         app:layout_constraintEnd_toEndOf="parent"
