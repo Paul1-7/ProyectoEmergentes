@@ -117,12 +117,12 @@ public class FormPublicacion extends AppCompatActivity {
                 String precio = txtPrecio.getText().toString();
                 String descripcion = txtDescripcion.getText().toString();
                 String imagen = txtImagen.getText().toString();
-                String estado = "";
-                if(disponible.isChecked()){
+                String estado = "Disponible";
+                /*if(disponible.isChecked()){
                     estado = "disponible";
                 }else if(vendido.isChecked())
                     estado = "vendido";
-
+*/
                 //dato del idUser recibido
                 String idUser = "no hay prametro";
                 Bundle extras = getIntent().getExtras();

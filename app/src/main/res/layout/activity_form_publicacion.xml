@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="25dp"
+    android:padding="25dp"
+    android:background="@color/surface"
     tools:context=".FormPublicacion">
 
     <TextView
@@ -12,9 +13,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:textColor="#000000"
+        android:textColor="#fff"
         android:textSize="30dp"
         android:textStyle="bold"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,12 +26,23 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textColorHint="@color/primary"
+        app:boxStrokeColor="@color/primary"
+        app:endIconTint="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:placeholderTextColor="#EDE1E1"
+        app:startIconTint="@color/primary"
+        app:suffixTextColor="@color/primary"
+        android:textColor="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFormPublicacion">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtProducto"
+            android:background="@color/on_surface"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre del producto" />
@@ -40,11 +53,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textColorHint="@color/primary"
+        app:boxStrokeColor="@color/primary"
+        app:endIconTint="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:placeholderTextColor="#EDE1E1"
+        app:startIconTint="@color/primary"
+        app:suffixTextColor="@color/primary"
+        android:textColor="@color/primary"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
         tools:layout_editor_absoluteX="112dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtPrecio"
+            android:background="@color/on_surface"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Precio Bs" />
@@ -55,11 +79,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textColorHint="@color/primary"
+        app:boxStrokeColor="@color/primary"
+        app:endIconTint="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:placeholderTextColor="#EDE1E1"
+        app:startIconTint="@color/primary"
+        app:suffixTextColor="@color/primary"
+        android:textColor="@color/primary"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
         tools:layout_editor_absoluteX="112dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtDescripcion"
+            android:background="@color/on_surface"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:hint="Descripcion" />
@@ -69,11 +104,22 @@
         android:id="@+id/textInputLayout5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColorHint="@color/primary"
+        app:boxStrokeColor="@color/primary"
+        app:endIconTint="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:placeholderTextColor="#EDE1E1"
+        app:startIconTint="@color/primary"
+        app:suffixTextColor="@color/primary"
+        android:textColor="@color/primary"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:layout_editor_absoluteX="112dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtImagen"
+            android:background="@color/on_surface"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enlace de la imagen" />
@@ -83,9 +129,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="25dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5"
+        tools:layout_editor_absoluteX="25dp">
 
         <Button
             android:id="@+id/btnCancelar"
@@ -93,6 +140,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
+            android:backgroundTint="@color/on_surface"
             android:text="Cancelar" />
 
         <Button
@@ -100,7 +148,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:backgroundTint="@color/on_surface"
+            android:textColor="@color/primary" />
     </LinearLayout>
 
     <LinearLayout
@@ -121,7 +171,9 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:text="Tomar Foto" />
+            android:backgroundTint="@color/on_surface"
+            android:text="Tomar Foto"
+            app:icon="@drawable/ic_baseline_photo_camera_24" />
 
         <Button
             android:id="@+id/btnSubirFoto"
@@ -129,7 +181,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:text="Subir Foto" />
+            android:text="Subir Foto"
+            android:backgroundTint="@color/on_surface"
+            app:icon="@drawable/ic_baseline_photo_library_24" />
 
     </LinearLayout>
 
@@ -140,40 +194,12 @@
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
+        android:background="@color/surface"
         android:text="Imagen"
+        android:textColor="@color/primary"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:checkedButton="@+id/radio_button_1"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
-
-        <RadioButton
-            android:id="@+id/radio_button_disponible"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:checked="true"
-            android:text="Disponible" />
-
-        <RadioButton
-            android:id="@+id/radio_button_vendido"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Vendido" />
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:text="Estado"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

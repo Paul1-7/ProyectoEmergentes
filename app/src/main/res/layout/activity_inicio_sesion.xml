@@ -34,6 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFormPublicacion"
+        app:passwordToggleEnabled="false"
         app:placeholderTextColor="#EDE1E1"
         app:startIconTint="@color/primary"
         app:suffixTextColor="@color/primary">
@@ -49,11 +50,18 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:textColorHint="@color/primary"
+        app:boxStrokeColor="@color/primary"
+        app:endIconTint="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:placeholderTextColor="#EDE1E1"
+        app:startIconTint="@color/primary"
+        app:suffixTextColor="@color/primary"
+        android:textColor="@color/primary"
         android:id="@+id/textInputLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:textColor="@color/primary"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
         tools:layout_editor_absoluteX="112dp">
 
@@ -62,7 +70,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Contraseña"
-            android:textColorHint="#000000" />
+            android:password="true"
+            android:background="@color/on_surface"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -107,7 +118,9 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:text="Facebook" />
+            android:text="Facebook"
+            app:backgroundTint="@color/on_surface"
+            app:icon="@drawable/logo_de_facebook" />
 
         <Button
             android:id="@+id/btnGoogle"
@@ -115,7 +128,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:text="Google" />
+            android:text="Google"
+            app:backgroundTint="@color/on_surface"
+            app:icon="@drawable/google" />
 
     </LinearLayout>
 

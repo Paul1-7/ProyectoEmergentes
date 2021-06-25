@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="25dp"
+    android:padding="25dp"
+    android:background="@color/surface"
     tools:context=".CrearCuenta">
 
     <TextView
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:text="Crear cuenta"
-        android:textColor="#000000"
+        android:textColor="@color/primary"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,6 +26,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:textColorHint="@color/primary"
+        app:boxStrokeColor="@color/primary"
+        app:endIconTint="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:placeholderTextColor="#EDE1E1"
+        app:startIconTint="@color/primary"
+        app:suffixTextColor="@color/primary"
+        android:textColor="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFormPublicacion">
@@ -33,6 +42,9 @@
             android:id="@+id/txtNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/on_surface"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary"
             android:hint="Nombre" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -41,6 +53,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textColorHint="@color/primary"
+        app:boxStrokeColor="@color/primary"
+        app:endIconTint="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:placeholderTextColor="#EDE1E1"
+        app:startIconTint="@color/primary"
+        app:suffixTextColor="@color/primary"
+        android:textColor="@color/primary"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout10"
         tools:layout_editor_absoluteX="112dp">
 
@@ -48,6 +68,9 @@
             android:id="@+id/txtApellido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/on_surface"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary"
             android:hint="Apellido" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,6 +79,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textColorHint="@color/primary"
+        app:boxStrokeColor="@color/primary"
+        app:endIconTint="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:placeholderTextColor="#EDE1E1"
+        app:startIconTint="@color/primary"
+        app:suffixTextColor="@color/primary"
+        android:textColor="@color/primary"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
         tools:layout_editor_absoluteX="112dp">
 
@@ -63,6 +94,10 @@
             android:id="@+id/txtPrecio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/on_surface"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary"
+            android:password="true"
             android:hint="Contraseña" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -71,6 +106,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textColorHint="@color/primary"
+        app:boxStrokeColor="@color/primary"
+        app:endIconTint="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:placeholderTextColor="#EDE1E1"
+        app:startIconTint="@color/primary"
+        app:suffixTextColor="@color/primary"
+        android:textColor="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout11">
@@ -79,6 +122,9 @@
             android:id="@+id/txtProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/on_surface"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary"
             android:hint="Email" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -87,6 +133,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textColorHint="@color/primary"
+        app:boxStrokeColor="@color/primary"
+        app:endIconTint="@color/primary"
+        app:hintTextColor="@color/primary"
+        app:placeholderTextColor="#EDE1E1"
+        app:startIconTint="@color/primary"
+        app:suffixTextColor="@color/primary"
+        android:textColor="@color/primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
@@ -95,6 +149,10 @@
             android:id="@+id/txtConfirmarCon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/on_surface"
+            android:textColor="@color/primary"
+            android:textColorHint="@color/primary"
+            android:password="true"
             android:hint="Confirmar contraseña" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -104,6 +162,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Crear Cuenta"
+        android:backgroundTint="@color/on_surface"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
